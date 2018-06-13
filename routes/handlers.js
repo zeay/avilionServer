@@ -5,12 +5,10 @@ var handlers = {};
 
 handlers.ping = function(data, callback){
     var template =`<h1>Ok</h1>`;
-    console.log(data.inputPayload);
     callback(200, template, 'text/html');
 }
 handlers.notFound = function(data, callback){
     var template = `<h1>Not Found</h1>`;
-    console.log(data.inputPayload);s
     callback(404, template, 'text/html');
 }
 handlers.postData = function(data, callback){
@@ -29,7 +27,6 @@ handlers.postData = function(data, callback){
 }
 handlers.requestData = function(data, callback) {
     let entry = JSON.parse(data.inputPayload);
-    console.log(entry);
     if(entry.type === 'pass'){
         carryData.find().then((caData)=>{
             callback(200, caData);
