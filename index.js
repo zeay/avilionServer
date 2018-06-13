@@ -36,6 +36,7 @@ server.on('request', function(req,res){
                     let outputPayload = typeof(outputpayload) !== 'undefined' ? outputpayload :{};
                      let setHeader = setheader || 'application/json';
                      let outputData = JSON.stringify(outputPayload);
+                     res.setHeader("Access-Control-Allow-Origin", "*");
                      res.setHeader('content-type', setHeader);
                      res.writeHead(statusCode);
                      res.end(outputData);
